@@ -4,10 +4,12 @@ import java.lang.Integer;
 import java.lang.Double;
 
 public class Item {
+    // Instance vars
     String recordID, name;
     Integer quantAvailable;
     Double price;
 
+    // Constructor
     public Item(String recordID, String name, int quantAvailable, double price) {
         this.recordID = recordID;
         this.name = name;
@@ -15,6 +17,7 @@ public class Item {
         this.price = (Double) price;
     }
 
+    // gets instance var's value specified in varName parameter
     public Object getInstanceVar(String varName) {
         Object var = "o";
 
@@ -38,6 +41,7 @@ public class Item {
         return var;
     }
 
+    // Sets value of instance var specified in varName parameter to a new one stated in newVal
     public void setInstanceVar(String varName, Object newVal) {
         switch (varName) {
             case "recordID":
@@ -57,14 +61,16 @@ public class Item {
         }
     }
 
+    // Prints info (instance vars) of item in a list format
     public void itemInfo() {
         System.out.println("Item ID: " + recordID + "\nName: " + name + "\nQuantity available in inventory: " + quantAvailable + "\nPrice: " + price);
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Item item = new Item("001", "null", 3, 4);
         System.out.println(item.getInstanceVar("recordID"));
         item.setInstanceVar("recordID", "111");
         System.out.println(item.getInstanceVar("recordID"));
-    }
+        item.itemInfo();
+    }*/
 }
