@@ -38,8 +38,27 @@ public class Item {
         return var;
     }
 
+    public void setInstanceVar(String varName, Object newVal) {
+        switch (varName) {
+            case "recordID":
+                recordID = (String) newVal;
+                break;
+            case "name":
+                name = (String) newVal;
+                break;
+            case "quantAvailable":
+                quantAvailable = (Integer) newVal;
+                break;
+            case "price":
+                price = (Double) newVal;
+                break;
+            default:
+                break;
+        }
+    }
+
     public static void main(String[] args) {
         Item item = new Item("001", "null", 3, 4);
-        System.out.println();
+        System.out.println(item.getInstanceVar("recordID"));
     }
 }
