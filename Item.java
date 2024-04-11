@@ -18,27 +18,20 @@ public class Item {
     }
 
     // gets instance var's value specified in varName parameter
-    public Object getInstanceVar(String varName) {
-        Object var = "o";
+    public String getRecordID() {
+        return recordID;
+    }
 
-        switch (varName) {
-            case "recordID":
-                var = recordID;
-                break;
-            case "name":
-                var = name;
-                break;
-            case "quantAvailable":
-                var = quantAvailable;
-                break;
-            case "price":
-                var = price;
-                break;
-            default:
-                break;
-        }
+    public String getName() {
+        return name;
+    }
 
-        return var;
+    public int getQuantAvailable() {
+        return quantAvailable;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 
     // Sets value of instance var specified in varName parameter to a new one stated in newVal
