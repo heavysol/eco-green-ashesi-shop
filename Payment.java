@@ -21,8 +21,8 @@ public class Payment {
     }
 
     // Getter for item
-    public Item getItem() {
-        return (Item) item.getInstanceVar("name");
+    public String getItem() {
+        return item.getName();
     }
 
     // Getter for payment method
@@ -69,7 +69,7 @@ public class Payment {
     public void getReceipt() {
         System.out.println("Receipt:");
         System.out.println("ID: " + ID);
-        System.out.println("Item: " + (Item) item.getInstanceVar("name"));
+        System.out.println("Item: " + getItem());
         System.out.println("Payment Method: " + payMethod);
         System.out.println("Payment Date: " + payDate);
         System.out.println("Cost: " + cost);
@@ -77,7 +77,7 @@ public class Payment {
 
     public static void main(String[] args) {
         // Create a Payment instance
-        Payment payment = new Payment("123456", new Item("001", "chocolate", 5, 20.99), "MoMo", "2024-04-10", 1200.50);
+        Payment payment = new Payment("123456", new Item("001", "Chocolate", 5, 20.99), "MoMo", "2024-04-10", 1200.50);
 
         // Initial payment details
         System.out.println("Initial Payment Details:");
