@@ -22,7 +22,7 @@ public class Payment {
 
     // Getter for item
     public Item getItem() {
-        return item;
+        return (Item) item.getInstanceVar("name");
     }
 
     // Getter for payment method
@@ -69,7 +69,7 @@ public class Payment {
     public void getReceipt() {
         System.out.println("Receipt:");
         System.out.println("ID: " + ID);
-        System.out.println("Item: " + item);
+        System.out.println("Item: " + (Item) item.getInstanceVar("name"));
         System.out.println("Payment Method: " + payMethod);
         System.out.println("Payment Date: " + payDate);
         System.out.println("Cost: " + cost);
