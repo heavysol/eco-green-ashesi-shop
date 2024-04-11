@@ -2,11 +2,12 @@
 
 public class Payment {
     // Attributes
-    private String ID, item, payMethod, payDate;
+    private String ID, payMethod, payDate;
+    private Item item;
     private double cost;
 
     // Constructor
-    public Payment(String ID, String item, String payMethod, String payDate, double cost) {
+    public Payment(String ID, Item item, String payMethod, String payDate, double cost) {
         this.ID = ID;
         this.item = item;
         this.payMethod = payMethod;
@@ -20,7 +21,7 @@ public class Payment {
     }
 
     // Getter for item
-    public String getItem() {
+    public Item getItem() {
         return item;
     }
 
@@ -45,7 +46,7 @@ public class Payment {
     }
 
     // Setter for item
-    public void setItem(String item) {
+    public void setItem(Item item) {
         this.item = item;
     }
 
@@ -76,7 +77,7 @@ public class Payment {
 
     public static void main(String[] args) {
         // Create a Payment instance
-        Payment payment = new Payment("123456", "Chocolate", "MoMo", "2024-04-10", 1200.50);
+        Payment payment = new Payment("123456", new Item("001", "chocolate", 5, 20.99), "MoMo", "2024-04-10", 1200.50);
 
         // Initial payment details
         System.out.println("Initial Payment Details:");
