@@ -2,10 +2,7 @@
 
 public class Payment {
     // Attributes
-    private String ID;
-    private String item;
-    private String payMethod;
-    private String payDate;
+    private String ID, item, payMethod, payDate;
     private double cost;
 
     // Constructor
