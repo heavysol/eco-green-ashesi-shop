@@ -76,8 +76,9 @@ public class Payment {
         System.out.println("Cost: " + cost);
     }
 
-    public String paymentData() {
-        return getID() + "," + getItem() + "," + getPayMethod() + "," + getPayDate() + "," + getCost();
+    public Object[] paymentData() {
+        Object[] record = {getID(), getItem(), getPayMethod(), getPayDate(), getCost()};
+        return record;
     }
 
     /*public static void main(String[] args) {
