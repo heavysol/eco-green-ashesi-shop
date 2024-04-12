@@ -1,4 +1,5 @@
 //import java.util.Date;
+import java.lang.Double;
 
 public class Payment {
     // Attributes
@@ -75,7 +76,11 @@ public class Payment {
         System.out.println("Cost: " + cost);
     }
 
-    public static void main(String[] args) {
+    public String paymentData() {
+        return getID() + "," + getItem() + "," + getPayMethod() + "," + getPayDate() + "," + getCost();
+    }
+
+    /*public static void main(String[] args) {
         // Create a Payment instance
         Payment payment = new Payment("123456", new Item("001", "Chocolate", 5, 20.99), "MoMo", "2024-04-10", 1200.50);
 
@@ -91,5 +96,5 @@ public class Payment {
         // Modified payment details
         System.out.println("Modified Payment Details:");
         payment.getReceipt();
-    }
+    }*/
 }
