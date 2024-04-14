@@ -1,6 +1,3 @@
-//import java.util.Date;
-import java.lang.Double;
-
 public class Payment {
     // Attributes
     private String ID, payMethod, payDate;
@@ -76,9 +73,10 @@ public class Payment {
         System.out.println("Cost: " + cost);
     }
 
-    public Object[] paymentData() {
+    public Object[] paymentData(Object[] data) {
         Object[] record = {getID(), getItem(), getPayMethod(), getPayDate(), getCost()};
         return record;
+        
     }
 
     /*public static void main(String[] args) {

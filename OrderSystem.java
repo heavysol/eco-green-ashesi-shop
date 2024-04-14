@@ -1,6 +1,6 @@
-import ff.Database;
-
 import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class OrderSystem {
     private Database database;
@@ -26,6 +26,7 @@ public class OrderSystem {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Select an option: ");
         int option = scanner.nextInt();
+        scanner.close();
         return option;
     }
 
@@ -61,7 +62,7 @@ public class OrderSystem {
         System.out.println("Welcome to the Order System!");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         Database database = new Database();
         OrderSystem orderSystem = new OrderSystem(database);
         orderSystem.welcomeMessage();
