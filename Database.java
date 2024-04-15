@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Database {
+public class Database implements InputValue {
     /*
      * items are added, viewed, edited and deleted from this class
      * Attributes: record of purchased item (Item)
@@ -31,7 +31,8 @@ public class Database {
     }
 
     // method to view items
-    public void viewItems() {
+    public void viewItems() throws FileNotFoundException, IOException {
+        readFile();
         // a for loop to print out every item in the record
         for (int i = 0; i < records.size(); i++) {
             System.out.println(records.get(i));
@@ -39,7 +40,9 @@ public class Database {
     }
 
     // method to edit item in a record
-    public void editItem() {
+    public void editItem() throws FileNotFoundException, IOException {
+        readFile();
+
         Scanner input = new Scanner(System.in);
 
         String id = inputVal("Enter id of item purchase record");
@@ -67,7 +70,9 @@ public class Database {
         input.close();
     }
 
-    public void deleteItem() {
+    public void deleteItem() throws FileNotFoundException, IOException {
+        readFile();
+        
         String id = inputVal("Enter id of item purchase record");
         // Validation of id data entered
 

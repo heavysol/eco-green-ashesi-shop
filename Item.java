@@ -16,11 +16,6 @@ public class Item {
         "reusable pack", 
         "kraft paper bag",
         "bamboo toothbrush",
-        "bamboo straw",
-        "paper envelope", 
-        "re-usable pad",
-        "recycled bathroom tissue",
-        "local honey",
     };
 
     // Constructor

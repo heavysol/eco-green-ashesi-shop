@@ -1,12 +1,21 @@
 import java.util.Scanner;
+import java.util.Random;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.Double;
 
-public class OrderSystem {
+public class OrderSystem implements InputValue {
     private Database database;
+    private Item[] items;
+    private Random rand = new Random();
+    private int idMaker = 0;
 
     public OrderSystem(Database database) {
         this.database = database;
+        
+        for (int i = 0; i < 5; i++) {
+            items[i] = new Item(String.valueOf(i), Item.ITEMS[i], 20, 9.99 + rand.nextInt(20));
+        }
     }
 
     public void createMenuOption() {
@@ -34,7 +43,13 @@ public class OrderSystem {
         try {
             switch (option) {
                 case 1:
-                    // Add Item
+                    String itemName = inputVal("Enter item name; the options are: herbal tea, reusable water bottle, reusable pack, kraft paper bag, bamboo toothbrush.");
+                    String payMethod = inputVal("Enter payment method of item");
+                    String datePurchase = inputVal("Enter date of purchase");
+                    String cost = inputVal("Enter cost of item");
+
+                    idMaker += 1;
+                    Payment payment = new Payment(idMaker, null, payMethod, cost, option)
                     break;
                 case 2:
                     // Edit Item
