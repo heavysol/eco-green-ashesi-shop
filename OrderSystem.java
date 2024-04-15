@@ -44,21 +44,45 @@ public class OrderSystem implements InputValue {
             switch (option) {
                 case 1:
                     String itemName = inputVal("Enter item name; the options are: herbal tea, reusable water bottle, reusable pack, kraft paper bag, bamboo toothbrush.");
+                    int itemNameIndex = -1;
+                    switch (itemName) {
+                        case "herbal tea":
+                            itemNameIndex = 0;
+                            break;
+                        case "reusable water bottle":
+                            itemNameIndex = 1;
+                            break;
+                        case "reusable pack":
+                            itemNameIndex = 2;
+                            break;
+                        case "kraft paper bag":
+                            itemNameIndex = 3;
+                            break;
+                        case "bamboo toothbrush":
+                            itemNameIndex = 4;
+                            break;
+                        default:
+                            break;
+                    }
+
                     String payMethod = inputVal("Enter payment method of item");
                     String datePurchase = inputVal("Enter date of purchase");
                     String cost = inputVal("Enter cost of item");
 
                     idMaker += 1;
-                    Payment payment = new Payment(idMaker, null, payMethod, cost, option)
+                    Payment payment = new Payment(String.valueOf(idMaker), items[itemNameIndex], payMethod, datePurchase, Double.parseDouble(cost));
+
+                    database.addRecord(payment.paymentData());
+
                     break;
                 case 2:
-                    // Edit Item
+                    database.editItem();
                     break;
                 case 3:
-                    // View Items
+                    database.viewItems();
                     break;
                 case 4:
-                    // Delete Item
+                    database.deleteItem();
                     break;
                 case 5:
                     System.out.println("Exiting program...");
@@ -98,4 +122,14 @@ public class OrderSystem implements InputValue {
 
         scanner.close();
     }
+
+    public String inputVal(String prompt) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println(prompt);
+        String val = input.nextLine();
+        input.close();
+
+        return val;
+    } 
 }

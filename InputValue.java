@@ -1,3 +1,3 @@
 public interface InputValue {
-    String inputVal(String prompt);
+    public String inputVal(String prompt);
 }

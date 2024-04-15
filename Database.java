@@ -108,7 +108,7 @@ public class Database implements InputValue {
         writeData.close();
     }
 
-    String inputVal(String prompt) {
+    public String inputVal(String prompt) {
         Scanner input = new Scanner(System.in);
 
         System.out.println(prompt);
