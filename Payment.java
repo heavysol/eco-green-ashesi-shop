@@ -63,16 +63,6 @@ public class Payment {
         this.payDate = payDate;
     }
 
-    // Method to get receipt
-    public void getReceipt() {
-        System.out.println("Receipt:");
-        System.out.println("ID: " + ID);
-        System.out.println("Item: " + getItem());
-        System.out.println("Payment Method: " + payMethod);
-        System.out.println("Payment Date: " + payDate);
-        System.out.println("Cost: " + cost);
-    }
-
     public Object[] paymentData() {
         Object[] record = {getID(), getItem(), getPayMethod(), getPayDate(), getCost()};
         return record;

@@ -31,7 +31,7 @@ public class Database implements InputValue {
     }
 
     // method to view items
-    public void viewItems() throws FileNotFoundException, IOException {
+    public void viewRecords() throws FileNotFoundException, IOException {
         readFile();
         // a for loop to print out every item in the record
         for (int i = 0; i < records.size(); i++) {
@@ -40,7 +40,7 @@ public class Database implements InputValue {
     }
 
     // method to edit item in a record
-    public void editItem() throws FileNotFoundException, IOException {
+    public void editRecord() throws FileNotFoundException, IOException {
         readFile();
 
         Scanner input = new Scanner(System.in);
@@ -70,7 +70,7 @@ public class Database implements InputValue {
         input.close();
     }
 
-    public void deleteItem() throws FileNotFoundException, IOException {
+    public void deleteRecord() throws FileNotFoundException, IOException {
         readFile();
         
         String id = inputVal("Enter id of item purchase record");
@@ -118,9 +118,9 @@ public class Database implements InputValue {
         return val;
     }
 
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    /*public static void main(String[] args) throws FileNotFoundException, IOException {
         Database d = new Database();
         Object[] da1 = {"12","23","43","23",23.443};
         d.addRecord(da1);
-    }
+    }*/
 }

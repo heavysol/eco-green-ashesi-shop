@@ -14,16 +14,16 @@ public class OrderSystem implements InputValue {
         this.database = database;
         
         for (int i = 0; i < 5; i++) {
-            items[i] = new Item(String.valueOf(i), Item.ITEMS[i], 20, 9.99 + rand.nextInt(20));
+            items[i] = new Item(String.valueOf(i), Item.ITEMS[i], 9.99 + rand.nextInt(21));
         }
     }
 
     public void createMenuOption() {
         System.out.println("Menu Options:");
-        System.out.println("1. Add Item");
-        System.out.println("2. Edit Item");
-        System.out.println("3. View Items");
-        System.out.println("4. Delete Item");
+        System.out.println("1. Add item payment data");
+        System.out.println("2. Edit item payment data");
+        System.out.println("3. View all item payment data");
+        System.out.println("4. Delete item payment data");
         System.out.println("5. Exit");
     }
 
@@ -45,7 +45,7 @@ public class OrderSystem implements InputValue {
                 case 1:
                     String itemName = inputVal("Enter item name; the options are: herbal tea, reusable water bottle, reusable pack, kraft paper bag, bamboo toothbrush.");
                     int itemNameIndex = -1;
-                    switch (itemName) {
+                    switch (itemName.toLowerCase()) {
                         case "herbal tea":
                             itemNameIndex = 0;
                             break;
@@ -73,16 +73,20 @@ public class OrderSystem implements InputValue {
                     Payment payment = new Payment(String.valueOf(idMaker), items[itemNameIndex], payMethod, datePurchase, Double.parseDouble(cost));
 
                     database.addRecord(payment.paymentData());
+                    System.out.println("Payment data successfully added to database.\nID of added record is: " + idMaker);
 
                     break;
                 case 2:
-                    database.editItem();
+                    database.editRecord();
+                    System.out.println("Record in database successfully edited.");
                     break;
                 case 3:
-                    database.viewItems();
+                    database.viewRecords();
+                    System.out.println("=====END OF RECORD LIST=====");
                     break;
                 case 4:
-                    database.deleteItem();
+                    database.deleteRecord();
+                    System.out.println("Record in database successfully deleted.");
                     break;
                 case 5:
                     System.out.println("Exiting program...");
@@ -100,6 +104,16 @@ public class OrderSystem implements InputValue {
     public void welcomeMessage() {
         System.out.println("Welcome to the Order System!");
     }
+
+    public String inputVal(String prompt) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println(prompt);
+        String val = input.nextLine();
+        input.close();
+
+        return val;
+    } 
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
         Database database = new Database();
@@ -122,14 +136,4 @@ public class OrderSystem implements InputValue {
 
         scanner.close();
     }
-
-    public String inputVal(String prompt) {
-        Scanner input = new Scanner(System.in);
-
-        System.out.println(prompt);
-        String val = input.nextLine();
-        input.close();
-
-        return val;
-    } 
 }
