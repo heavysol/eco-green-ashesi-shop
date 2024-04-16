@@ -71,19 +71,10 @@ public class Payment {
 
     /*public static void main(String[] args) {
         // Create a Payment instance
-        Payment payment = new Payment("123456", new Item("001", "Chocolate", 5, 20.99), "MoMo", "2024-04-10", 1200.50);
-
-        // Initial payment details
-        System.out.println("Initial Payment Details:");
-        payment.getReceipt();
-        System.out.println();
+        Payment payment = new Payment("123456", new Item("001", "Chocolate", 20.99), "MoMo", "2024-04-10", 1200.50);
 
         // Modify some payment details
         payment.setPayMethod("Meal Plan");
         payment.setCost(1100.75);
-
-        // Modified payment details
-        System.out.println("Modified Payment Details:");
-        payment.getReceipt();
     }*/
 }

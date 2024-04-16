@@ -12,6 +12,7 @@ public class OrderSystem implements InputValue {
 
     public OrderSystem(Database database) {
         this.database = database;
+        items = new Item[5];
         
         for (int i = 0; i < 5; i++) {
             items[i] = new Item(String.valueOf(i), Item.ITEMS[i], 9.99 + rand.nextInt(21));
@@ -109,7 +110,7 @@ public class OrderSystem implements InputValue {
         Scanner input = new Scanner(System.in);
 
         System.out.println(prompt);
-        String val = input.nextLine();
+        String val = input.next();
         input.close();
 
         return val;
