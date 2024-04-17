@@ -52,6 +52,7 @@ public class Item {
                     return;
                 }
                 break;
+                
             case "price":
                 price = (Double) newVal;
                 break;
